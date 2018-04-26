@@ -9,13 +9,22 @@
            {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
            {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
            {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
-           {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'}
+           {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
+           {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
+           {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
+           {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
+           {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
+           {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
+           {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
+           {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
         ],
         countTarget:-1,
         countTimer:null,
         countH:'00',
         countM:'00',
-        countS:'00'
+        countS:'00',
+
+        editBtnExtend:false
     },
     mounted(){
    
@@ -60,6 +69,9 @@
          endCountTarget(index){
             clearInterval(this.countTimer);
             this.countTarget = -1;
+         },
+         clickEditBtn(){
+            this.editBtnExtend = true;
          }
 
     
