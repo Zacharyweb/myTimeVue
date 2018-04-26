@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>编辑页</title>
+    <link rel="stylesheet" type="text/css" href="https://f.51fanbei.com/h5/static/reset.css">
+    <link rel="stylesheet" href="./index.css">
+            <script>
+        // 判断rem字体大小
+            (function (doc, win) {
+                var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                };
+                if (!doc.addEventListener) return;
+                win.addEventListener(resizeEvt, recalc, false);
+                doc.addEventListener('DOMContentLoaded', recalc, false);
+            })(document, window);
+        </script>
+    
+</head>
+<body>
+    <div class="edit_outlayer" id="app">
+        <div class="edit_item_wrapper">
+           <div class="edit_item edit_act_icon_block">
+               <div class="edit_item_name">活动图标</div>
+               <div class="edit_item_content">
+                   <img class="edit_item_icon" src="../img/histrory.png">
+                   <img class="to_edit_arrow" src="../img/to_edit_arrow.png">
+               </div>
+           </div>
+           <div class="edit_item edit_act_name_block">
+                <div class="edit_item_name">活动名称</div>
+                <div class="edit_item_content">
+                    <span class="act_name">工作</span>
+                    <img class="to_edit_arrow" src="../img/to_edit_arrow.png">
+                </div>
+           </div>
+        </div>
+
+        <div class="submit_btn">确认修改</div>
+    </div>
+
+</html>
+<script src="../node_modules/vue/dist/vue.min.js"></script>
+<script src="./index.js"></script>

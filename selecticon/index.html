@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图标库</title>
+    <link rel="stylesheet" type="text/css" href="https://f.51fanbei.com/h5/static/reset.css">
+    <link rel="stylesheet" href="./index.css">
+        <script>       
+            (function (doc, win) {
+                var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                };
+                if (!doc.addEventListener) return;
+                win.addEventListener(resizeEvt, recalc, false);
+                doc.addEventListener('DOMContentLoaded', recalc, false);
+            })(document, window);
+        </script>
+    
+</head>
+<body>
+    <div class="selecte_act_icon_layer" id="app">
+        <div class="content_block">
+            <div class="act_item" v-for="(item,index) in iconList"  @click="selectIcon(index)">
+                <div class="act_item_inner" :class="{'selected': index == selectedIconIndex}">
+                    <img class="act_icon_pic" :src="item.icon">
+                </div>
+            </div>
+
+            <div class="add_new_act_icon_btn">
+                <img class="btn_icon" src="../img/add_new_act_icon_icon.png">
+                <div class="btn_name">上传图标</div>
+            </div>
+      
+        </div>
+
+    </div>
+
+</html>
+<script src="../node_modules/vue/dist/vue.min.js"></script>
+<script src="./index.js"></script>

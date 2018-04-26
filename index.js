@@ -10,13 +10,7 @@
            {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
            {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
            {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
-           {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
-           {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
-           {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
-           {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
-           {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
-           {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
-           {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'},
+           {icon:'./img/histrory.png',name:'工作',remark:'备注1，备注2'}
         ],
         countTarget:-1,
         countTimer:null,
@@ -24,7 +18,8 @@
         countM:'00',
         countS:'00',
 
-        editBtnExtend:false
+        isInEditing:false,
+        selectedActIndex:-1,
     },
     mounted(){
    
@@ -57,21 +52,36 @@
             }, 1000);
         },
         changeCountTarget(index){
-            clearInterval(this.countTimer);
-            if(this.countTarget == index){
-                this.countTarget = -1;
-                return;
-
+            if(this.isInEditing){
+                this.selectAct(index);
+            }else{
+                clearInterval(this.countTimer);
+                if(this.countTarget == index){
+                    this.countTarget = -1;
+                    return;
+                }
+                this.countTarget = index;
+                this.count();
             }
-            this.countTarget = index;
-            this.count();
          },
          endCountTarget(index){
             clearInterval(this.countTimer);
             this.countTarget = -1;
          },
-         clickEditBtn(){
-            this.editBtnExtend = true;
+
+
+         addNewAct(){
+            console.log('新增活动');
+         },
+         editAct(){
+
+            this.isInEditing = !this.isInEditing;
+            if(!this.isInEditing){
+                this.selectedActIndex = -1;
+            }
+         },
+         selectAct(index){
+            this.selectedActIndex = index;
          }
 
     

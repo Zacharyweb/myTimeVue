@@ -1,0 +1,72 @@
+
+body{
+  background-color: #fff;
+}
+.selecte_act_icon_layer{
+  padding: 0.3rem;
+  padding-right: 0;
+  padding-bottom: 1.4rem;
+}
+.content_block{
+  display: flex;
+  flex-wrap: wrap;
+}
+.content_block .act_item{
+   width: 2.2rem;
+   height: 2.2rem;
+   margin-right: 0.15rem;
+   margin-bottom: 0.15rem;
+   box-shadow: 0 0.01rem 0.09rem 0 rgba(223,223,223,.63);
+   position: relative;
+  
+}
+.content_block .act_item .act_item_inner{
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.content_block .act_item .act_item_inner.selected{
+  border:0.06rem solid #1d8574;
+}
+
+
+
+
+
+.content_block .act_item.no_margin_right{
+  margin-right: 0;
+}
+.content_block .act_item.act_set_block {
+
+}
+.content_block .act_item .act_icon_pic{
+  width: 1rem;
+  height: 1rem;
+}
+.content_block .add_new_act_icon_btn{
+ position: fixed;
+ bottom: 0.3rem;
+ right: 0.5rem;
+ padding-left: 0.3rem;
+ width: 2.1rem;
+ height: 0.88rem;
+ display: flex;
+ align-items: center;
+ border-radius: 0.6rem;
+ background-color: #a1d2ce;
+ border:0.02rem solid #1d8574; 
+}
+.content_block .add_new_act_icon_btn .btn_icon{
+  width: 0.4rem;
+  height: 0.4rem;
+}
+.content_block .add_new_act_icon_btn .btn_name{
+  font-size: 0.32rem;
+  color: #1d8574;
+  margin-left: 0.1rem;
+}
