@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>编辑名称</title>
+    <link rel="stylesheet" type="text/css" href="https://f.51fanbei.com/h5/static/reset.css">
+    <link rel="stylesheet" href="./index.css">
+            <script>
+        // 判断rem字体大小
+            (function (doc, win) {
+                var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                };
+                if (!doc.addEventListener) return;
+                win.addEventListener(resizeEvt, recalc, false);
+                doc.addEventListener('DOMContentLoaded', recalc, false);
+            })(document, window);
+        </script>
+    
+</head>
+<body>
+    <div class="history_layer" id="app">
+        
+        <div class="tab_bar_wrapper">
+            <div class="tab_bar">
+                <div class="tab_item active">今天</div>
+                <div class="tab_item">昨日</div>
+                <div class="tab_item">本周</div>
+                <div class="tab_item">汇总</div>
+                <div class="tab_item search_btn" @click="showSearchPanel">搜索<img class="search_icon" src="../img/search_icon.png"></div>
+            </div>
+        </div>
+        
+        <div class="tab_bar_fill_block"></div>
+        <div class="history_list">
+            <div class="history_item">
+               <div class="act_base_msg">
+                    <div class="act_name">工作</div>
+                    <div class="act_remark">活动备注1、活动备注2</div>
+                    <div class="act_time">2018.4.06 12:35-15:35</div>
+               </div>
+               <div class="act_total_msg">
+                   <div class="time_total_text"><img class="time_total_icon" src="../img/time_total_icon.png">总计</div>
+                   <div class="total_time">3小时0分</div>
+               </div>
+            </div>
+            <div class="history_item">
+               <div class="act_base_msg">
+                    <div class="act_name">工作</div>
+                    <div class="act_remark">活动备注1、活动备注2</div>
+                    <div class="act_time">2018.4.06 12:35-15:35</div>
+               </div>
+               <div class="act_total_msg">
+                   <div class="time_total_text"><img class="time_total_icon" src="../img/time_total_icon.png">总计</div>
+                   <div class="total_time">3小时0分</div>
+               </div>
+            </div>
+            <div class="history_item">
+               <div class="act_base_msg">
+                    <div class="act_name">工作</div>
+                    <div class="act_remark">活动备注1、活动备注2</div>
+                    <div class="act_time">2018.4.06 12:35-15:35</div>
+               </div>
+               <div class="act_total_msg">
+                   <div class="time_total_text"><img class="time_total_icon" src="../img/time_total_icon.png">总计</div>
+                   <div class="total_time">3小时0分</div>
+               </div>
+            </div>
+            <div class="history_item">
+               <div class="act_base_msg">
+                    <div class="act_name">工作</div>
+                    <div class="act_remark">活动备注1、活动备注2</div>
+                    <div class="act_time">2018.4.06 12:35-15:35</div>
+               </div>
+               <div class="act_total_msg">
+                   <div class="time_total_text"><img class="time_total_icon" src="../img/time_total_icon.png">总计</div>
+                   <div class="total_time">3小时0分</div>
+               </div>
+            </div>
+                  <div class="history_item">
+               <div class="act_base_msg">
+                    <div class="act_name">工作</div>
+                    <div class="act_remark">活动备注1、活动备注2</div>
+                    <div class="act_time">2018.4.06 12:35-15:35</div>
+               </div>
+               <div class="act_total_msg">
+                   <div class="time_total_text"><img class="time_total_icon" src="../img/time_total_icon.png">总计</div>
+                   <div class="total_time">3小时0分</div>
+               </div>
+            </div>
+                  <div class="history_item">
+               <div class="act_base_msg">
+                    <div class="act_name">工作</div>
+                    <div class="act_remark">活动备注1、活动备注2</div>
+                    <div class="act_time">2018.4.06 12:35-15:35</div>
+               </div>
+               <div class="act_total_msg">
+                   <div class="time_total_text"><img class="time_total_icon" src="../img/time_total_icon.png">总计</div>
+                   <div class="total_time">3小时0分</div>
+               </div>
+            </div>
+
+            <div class="history_item">
+               <div class="act_base_msg">
+                    <div class="act_name">暂停</div>
+                    <div class="act_remark"></div>
+                    <div class="act_time">2018.4.06 12:35-15:35</div>
+               </div>
+               <div class="act_total_msg">
+                   <div class="time_total_text"><img class="time_total_icon" src="../img/time_total_icon.png">总计</div>
+                   <div class="total_time">3小时0分</div>
+               </div>
+            </div>
+
+            <div class="history_item today_leaf_time">
+               <div class="act_base_msg">
+                    <div class="act_name">今日剩余时间</div>
+               </div>
+               <div class="act_total_msg">
+                   <div class="total_time">3小时0分</div>
+               </div>
+            </div>
+        </div>
+
+        <div class="rank_btn">
+            <img class="rank_btn_icon" src="../img/down_rank_icon.png" v-show="rankStatus == 1" @click="changeRankStatus(2)">
+            <img class="rank_btn_icon" src="../img/up_rank_icon.png" v-show="rankStatus == 2" @click="changeRankStatus(1)">
+        </div>
+
+        <div class="search_history_wrapper">
+            <div class="search_history_mask" v-show="searchPanelShow" @click="hideSearchPanel"></div>
+            <div class="search_history_panel" :class="{'show':searchPanelShow}">
+                <div class="panel_header">
+                    <img class="close_icon" src="../img/left_arrow.png" @click="hideSearchPanel">
+                    请选择搜索时间段
+                </div>
+                <div class="panel_content">
+                    <div class="input_item">
+                        <div class="item_name">起始时间：</div>
+                        <div class="item_input_wrap">
+                            <input class="time_input" type="text">
+                        </div>
+                    </div>
+
+                    <div class="input_item">
+                        <div class="item_name">结束时间：</div>
+                        <div class="item_input_wrap">
+                            <input class="time_input" type="text">
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="panel_footer">
+                    <div class="bottom_btn cancel_btn">重置</div>
+                    <div class="bottom_btn submit_btn" @click="submitSearch">搜索</div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+</html>
+<script src="../node_modules/vue/dist/vue.min.js"></script>
+<script src="./index.js"></script>
