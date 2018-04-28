@@ -29,7 +29,9 @@
             <div class="act_item" v-for="(item,index) in iconList"  @click="selectIcon(index)">
                 <div class="act_item_inner" :class="{'selected': index == selectedIconIndex}">
                     <img class="act_icon_pic" :src="item.icon">
+                    <div class="act_icon_name">工作</div>
                 </div>
+                
             </div>
 
             <div class="add_new_act_icon_btn">
