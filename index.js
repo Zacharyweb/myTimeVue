@@ -22,7 +22,7 @@
         selectedActIndex:-1,
     },
     mounted(){
-   
+         this.count();
     },
     methods:{
         addZero(n) {
@@ -33,18 +33,32 @@
             var h = Math.floor(count / 3600);
             var m = Math.floor((count % 3600) / 60);
             var s = count % 60;
-            this.countH = this.addZero(h);
-            this.countM = this.addZero(m);
-            this.countS = this.addZero(s);
+            // this.countH = this.addZero(h);
+            // this.countM = this.addZero(m);
+            // this.countS = this.addZero(s);
+            console.log(this.addZero(h)+'：'+this.addZero(m)+'：'+this.addZero(s));
         },
         count(){
-            var interval = 0;
-            this.countH  = '00';
-            this.countM  = '00';
-            this.countS  = '00';
+        	var nowDate = new Date();
+        	var nowTime = nowDate.getTime();
+
+        	var tomorrowDate = new Date(nowTime + 24*60*60*1000);
+
+            var Y = tomorrowDate.getFullYear();
+            var M = tomorrowDate.getMonth() + 1;
+            var D = tomorrowDate.getDate();
+           
+     
+            var todayEndTime = new Date(Y + '/' + M + '/' + D ).getTime();
+
+
+            var interval = Math.ceil((todayEndTime - nowTime)/1000);
+            // this.countH  = '00';
+            // this.countM  = '00';
+            // this.countS  = '00';
             this.countTimer = setInterval(() => {
-                interval++;
-                if (interval == 90) {
+                interval--;
+                if (interval == -1) {
                     clearInterval(this.countTimer);
                 } else {
                     this.countTime(interval);
